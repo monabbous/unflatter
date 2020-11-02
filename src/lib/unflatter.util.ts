@@ -10,6 +10,9 @@ export function unflatter(json) {
       const keys = key.split(/\[\s*([\w]+)\s*]/g)
         .filter(f => f !== '');
       keys.reduce((b, k, i) => {
+        if (keys[i] === '__proto__' || keys[i] === 'constructor' || keys[i] === 'prototype') {
+          return;
+          }
         if (b === undefined) {
           b = {};
         }
