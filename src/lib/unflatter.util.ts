@@ -11,7 +11,7 @@ export function unflatter(json) {
         .filter(f => f !== '');
       keys.reduce((b, k, i) => {
         if (keys[i] === '__proto__' || keys[i] === 'constructor' || keys[i] === 'prototype') {
-          return;
+          return b;
           }
         if (b === undefined) {
           b = {};
